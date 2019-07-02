@@ -1,5 +1,6 @@
 package com.lexrizen.UserRegistration.config;
 
+import org.slf4j.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -11,32 +12,36 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
+import lombok.extern.slf4j.Slf4j;
+
+
+@Slf4j
 @Configuration
 @EnableResourceServer
 public class OAuth2Config extends ResourceServerConfigurerAdapter {
+
+	private String RESOURCE_ID  = "123456789";
+	private String jwtSigningKey = "123456789";
 
 	@Override
 	public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
 		resources.tokenServices(tokenServices());
 	}
 
-	@Bean
-	@Primary
 	public DefaultTokenServices tokenServices() {
+		
 		DefaultTokenServices defaultTokenServices = new DefaultTokenServices();
 		defaultTokenServices.setTokenStore(tokenStore());
 		return defaultTokenServices;
 	}
 
-	@Bean
 	public TokenStore tokenStore() {
 		return new JwtTokenStore(accessTokenConverter());
 	}
 
-	@Bean
 	public JwtAccessTokenConverter accessTokenConverter() {
 		JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
-		converter.setSigningKey("123456789");
+		converter.setSigningKey(jwtSigningKey);
 		return converter;
 	}
 
