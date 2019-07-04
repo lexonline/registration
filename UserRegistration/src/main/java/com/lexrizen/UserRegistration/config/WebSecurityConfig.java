@@ -15,8 +15,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  * AuthenticationManager will be configured to use the custom
  * <code>UserService</code> class to retrieve user details from the
  * <code>DataSource</code>.
- *
- * Created by Chris on 3/5/2015.
  */
 @Configuration
 @EnableWebSecurity
@@ -37,5 +35,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
             .antMatchers(HttpMethod.OPTIONS, "/oauth/token").permitAll();
     }
-
 }
