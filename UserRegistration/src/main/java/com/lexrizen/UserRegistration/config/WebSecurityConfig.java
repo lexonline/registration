@@ -23,7 +23,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserService userService;
 
-    @Autowired
+    @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         // Users are authenticated by our custom UserDetailsService implementation. Usernames and passwords are
         // stored in the database, along with user roles/authorities

@@ -47,12 +47,6 @@ public class User {
     @Column(nullable=false, length=20)
     private String membertype;
 
-    
-    /**
-     * Constructs a new User.
-     */
-    public User() {
-    }
 
     /**
      * Tests equality of <code>User</code> objects.

@@ -83,11 +83,8 @@ public class UserService implements UserDetailsService {
         UserDetail userd = new UserDetail();
 
         try {
-            log.info("Count : " + this.userRepository.count());
+            
             User user = this.userRepository.findByEmailAddress(email);
-
-
-            System.out.println(user);
 
             if(user != null){
                 

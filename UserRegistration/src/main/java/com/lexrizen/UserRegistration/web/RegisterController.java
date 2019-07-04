@@ -21,7 +21,7 @@ public class RegisterController {
     @Autowired
     UserService userService;
 
-    @RequestMapping(value = "/hello")
+    @RequestMapping(value = "/hello",method = RequestMethod.GET)
     public String hello(){
         return  "Hello, World";
     }
@@ -34,7 +34,7 @@ public class RegisterController {
     @RequestMapping(value = "registeruser",method = RequestMethod.POST,produces = "application/json",consumes = "application/json")
     @ResponseBody
     public Message registerUser(@RequestBody UserDetail user){
-       log.info(user.toString());
+       log.trace("registerUser");
         return this.userService.save(user);
     }
 

@@ -2,6 +2,8 @@ package com.lexrizen.UserRegistration.config;
 
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -21,6 +23,8 @@ import javax.annotation.PostConstruct;
 @Configuration
 @EnableResourceServer
 public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter {
+	
+	private Logger log = LoggerFactory.getLogger(ResourceServerConfiguration.class);
 
     // Identifier for the protected resources
     @Value("${secure.resource.identifier}")
@@ -46,7 +50,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
         try {
             this.tokenConverter.afterPropertiesSet();
         } catch (Exception e) {
-            throw new RuntimeException("Failed to initialize JWT access token converter");
+            log.error(e.getMessage());
         }
 
         // Initialize the JWT token store:

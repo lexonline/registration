@@ -5,16 +5,16 @@ import java.io.Serializable;
 public class Message implements Serializable {
 
     private int code;
-    private String message;
+    private String description;
 
     public Message(){
         this.code = 200;
-        this.message = "Success";
+        this.description = "Success";
     }
 
     public Message(int code,String message){
         this.code = code;
-        this.message = message;
+        this.description = message;
     }
 
     public int getCode() {
@@ -25,13 +25,13 @@ public class Message implements Serializable {
         this.code = code;
     }
 
-    public String getMessage() {
-        return message;
-    }
+	public String getDescription() {
+		return description;
+	}
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
     
 }

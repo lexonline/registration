@@ -1,0 +1,147 @@
+{
+	"info": {
+		"_postman_id": "c3529102-d1bf-463e-8dbd-d1ff19bb59e2",
+		"name": "UserRegistration",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/finduser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsic29tZV9zZWN1cmVfcmVzb3VyY2UiXSwidXNlcl9uYW1lIjoibGV4cml6ZW5AaG90bWFpbC5jb20iLCJzY29wZSI6WyJtb2JpbGVfcnciXSwiZXhwIjoxNTYyMjgxMDYyLCJhdXRob3JpdGllcyI6WyJBRE1JTiJdLCJqdGkiOiI4YzEyYzA0Mi0zZGQ4LTQwNjktYTI3NS01MWFlMTI1ODRiZGQiLCJjbGllbnRfaWQiOiJhbmRyb2lkIn0.Oh2YF1CAuyJsqT4Xa9P6E3k6LVkXUqrhquy2DwG4O5k",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "lexrizen@hotmail.com"
+				},
+				"url": {
+					"raw": "http://localhost:8080/finduser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"finduser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/registeruser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOlsic29tZV9zZWN1cmVfcmVzb3VyY2UiXSwidXNlcl9uYW1lIjoibGV4cml6ZW5AaG90bWFpbC5jb20iLCJzY29wZSI6WyJtb2JpbGVfcnciXSwiZXhwIjoxNTYyMjgxMDYyLCJhdXRob3JpdGllcyI6WyJBRE1JTiJdLCJqdGkiOiI4YzEyYzA0Mi0zZGQ4LTQwNjktYTI3NS01MWFlMTI1ODRiZGQiLCJjbGllbnRfaWQiOiJhbmRyb2lkIn0.Oh2YF1CAuyJsqT4Xa9P6E3k6LVkXUqrhquy2DwG4O5k",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\" : \"John\",\n\t\"lastName\" : \"Smith\",\n\t\"emailAddress\" : \"john.smith@mail.com\",\n\t\"password\" : \"xxxxxx\",\n\t\"phone\" : \"08913138568\",\n\t\"address\" : \"\",\n\t\"salary\" : 9999\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/registeruser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"registeruser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://android@localhost:8080/oauth/token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "lexrizen@hotmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "secret1",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "mobile_rw",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "android",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://android@localhost:8080/oauth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"auth": {
+						"user": "android"
+					},
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
